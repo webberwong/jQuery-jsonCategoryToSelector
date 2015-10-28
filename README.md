@@ -1,4 +1,4 @@
-jsonCategoryTreeToSelect 插件
+jsonCategoryTreeToSelector 插件
 ====================================
 功能简述:<br>
 将从服务端取到的分类数据生成select标签,并控制表单的值
@@ -35,7 +35,13 @@ select标签绑定事件,值改变后会将值传给原有的表单<br>
             //值是标识在标签的哪个属性里
             val_attr : 'value',
             //选择标签的样式名
-            class_name : ''
+            class_name : '',
+            //默认无值的显示选项
+            defaultOpt : {
+                name  : '--请选择分类--',
+                value : 0,
+                show  : 1
+            }
         };
 ```
 
