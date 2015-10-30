@@ -66,7 +66,7 @@
         function generateOptions(data,level){
             var len = data.length;
             level = isNumber(level) ?  level : 0;
-            
+
             for(var i = 0; i < len; i++){
                 var $opt = $('<option></option>');
                 var _val = data[i][opts.valueKey];
@@ -99,32 +99,42 @@
             return str;
         }
 
+        /**
+         * 判断是不是数字类型
+         * @param value
+         * @returns {boolean}
+         */
         function isNumber(value){
             return typeof(value) == 'number' ? true : false;
         }
 
+        /**
+         * 获取表单的值
+         * @returns {*}
+         */
         function getValue(){
-            if(opts.val_attr == 'value'){
-               if( _this.is('input') ){
-                   return _this.val();
-               }
+            if( _this.is('input') || _this.is('textarea') ){
+               return _this.val();
             }else{
                 return _this.attr(opts.val_attr);
             }
         }
 
+        /**
+         * 设置表单的值
+         * @param value
+         */
         function setValue(value){
-            if(opts.val_attr == 'value'){
-                if( _this.is('input') ){
+            if( _this.is('input') || _this.is('textarea') ){
                     _this.val(value);
                     return;
-                }
             }else{
                 _this.attr(opts.val_attr,value);
                 return;
             }
         }
 
+        //生成视图
         generateView();
 
         return _this;
